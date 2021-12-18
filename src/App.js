@@ -17,7 +17,7 @@ function App() {
   const [list, setlist] = useState(getLocalStorage())
   const [isEditing, setisEditing] = useState(false);
   const [editId, seteditId] = useState(null)
-console.log(list);
+  console.log(list);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
@@ -40,7 +40,7 @@ console.log(list);
     }
 
   };
-console.log(list);
+  console.log(list);
 
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list))
@@ -57,14 +57,20 @@ console.log(list);
     setname(editItem.title)
   }
   return (
-    <>
-      <h1>hello world</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={(e) => setname(e.target.value)} />
-        <button type='submit'>{isEditing ? 'Submit' : 'Enter'}</button>
-      </form>
-      <List items={list} removeItem={removeItem} editItem={editItem} />
-    </>
+    <div className="app">
+      <div className="form">
+        <form onSubmit={handleSubmit} className='input-group mb-3'>
+          <input type="text" value={name} onChange={(e) => setname(e.target.value)}
+            className="form-control" placeholder="Recipient's username"
+            aria-label="Recipient's username" aria-describedby="button-addon2" />
+          <button className="btn btn-outline-success" type="submit" id="button-addon2">{isEditing ? 'Submit' : 'Enter'}</button>
+        </form>
+
+      </div>
+      <div className="list">
+        <List items={list} removeItem={removeItem} editItem={editItem} />
+      </div>
+    </div>
   );
 }
 

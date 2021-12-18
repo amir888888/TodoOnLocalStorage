@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../styles/list.css'
 const List = ({items, removeItem, editItem}) => {
     return (
         <div>
@@ -7,9 +7,12 @@ const List = ({items, removeItem, editItem}) => {
                const {id, title} = item;
                return(
                    <ul key={id}>
-                       <li>{title} 
-                       <button onClick={() => removeItem(id)}>Delete</button>
-                       <button onClick={() => editItem(id)}>Edit</button>
+                       <li className='lists'>
+                       <p>{title}</p>
+                       <div className="btns">
+                       <button className='btn btn-outline-danger' onClick={() => removeItem(id)}>Delete</button>
+                       <button className='btn btn-outline-warning' onClick={() => editItem(id)}>Edit</button>
+                       </div>
                        </li>
                    </ul>
                )

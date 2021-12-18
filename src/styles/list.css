@@ -1,0 +1,17 @@
+.lists{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    justify-items: center;
+    gap: 90px;
+    border: 2px solid rgb(162, 206, 120);
+    padding: 10px;
+    border-radius: 5px;
+}
+ul{
+    padding-bottom: 10px !important;
+}
+.btns{
+    display: flex;
+    gap: 10px;
+}
